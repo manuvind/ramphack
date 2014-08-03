@@ -36,6 +36,8 @@ gem 'youtube_it'
 
 gem 'dotenv-rails', :groups => [:development, :test]
 
+gem 'bootstrap-sass'
+
 group :development, :test do
   gem 'byebug'
 end 
