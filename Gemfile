@@ -30,6 +30,12 @@ gem 'omniauth'
 
 gem 'devise'
 
+gem 'parse-ruby-client'
+
+gem 'youtube_it'
+
+gem 'dotenv-rails', :groups => [:development, :test]
+
 group :development, :test do
   gem 'byebug'
 end 
