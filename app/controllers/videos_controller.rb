@@ -28,6 +28,8 @@ class VideosController < ApplicationController
 
     respond_to do |format|
       if @video.save
+        @video.video_upload
+        @video.parse_upload
         format.html { redirect_to @video, notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
       else
