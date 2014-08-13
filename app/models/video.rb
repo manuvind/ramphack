@@ -5,10 +5,10 @@ class Video < ActiveRecord::Base
   Dotenv.load
   require 'youtube_it'
   require 'parse-ruby-client'
-  Parse.init(:application_id => "7VQugUXdb7jzGtAVzuqhkJqW89DVQktrRjK7V35h", :api_key => "UR39PVyUb8c5erA3TFTKmNhGXU9b0HvkgymyDOZZ")
+  Parse.init(:application_id => ENV['APP_ID'], :api_key => ENV['API_KEY'])
   
   def video_upload
-    client = YouTubeIt::Client.new(:username => ENV['USERNAME'], :password => ENV['PASSWORD'], :dev_key => "AI39si6UTnzD7wL4GDxjtrtCoXQcuOUrqXT7UkIA4mPpPRbNr8hDVtI9nWb_GG1a86YffywakjXDjCWan-9h26lDVBK7DXzpPw")
+    client = YouTubeIt::Client.new(:username => ENV['USERNAME'], :password => ENV['PASSWORD'], :dev_key => ENV['DEV_KEY'])
     byebug
     youObj = client.video_upload(File.open(self.path), :title => self.name, :description => self.context, :category => 'People',:keywords => %w[cool blah test])
     self.url = youObj.player_url
